@@ -18,3 +18,5 @@ client.on('message', message => {
         message.channel.send('#credit')
     }
 });
+
+client.login(process.env.BOT_TOKEN); 
