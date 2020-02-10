@@ -30,7 +30,7 @@ const prefix = "!!";
 
 client.on('message', m => {
     var prefix = "!!"
-    if (m.content.startsWith(prefix + '')) {
+    if (m.content.startsWith(prefix + 'say')) {
         var args = m.content.split(" ");
         var str = ``
         if (!args[1]) {
