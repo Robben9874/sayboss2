@@ -1,47 +1,25 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-  
-const Discord = require('discord.js');
 
-const Util = require('discord.js');
+const prefix = ['r']
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
 
-const getYoutubeID = require('get-youtube-id');
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
 
-const fetchVideoInfo = require('youtube-info');
-
-const YouTube = require('simple-youtube-api');
-
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
-
-const queue = new Map();
-
-const ytdl = require('ytdl-core');
-
-const fs = require('fs');
-
-const gif = require("gif-search");
-
-const client = new Discord.Client({disableEveryone: true});
-
-const prefix = "!!";
-/////////////////////////
-////////////////////////
+  let args = message.content.split(" ").slice(1);
 
 
-client.on('message', m => {
-    var prefix = "!!"
-    if (m.content.startsWith(prefix + 'say')) {
-        var args = m.content.split(" ");
-        var str = ``
-        if (!args[1]) {
-            str+=`You Have To Type Something ..`
-        } else {
-            str+=args.join(" ").slice(args[1].length);
-        };
-        m.channel.send(str);
-    };
+
+if (command == "say" ) {
+let rank = message.guild.member(message.author).roles.find('name', '.');
+if (!rank) return message.reply(' ')
+  message.channel.send(args.join("  "))
+    message.delete();
+  }
 });
-
 
 
 client.login(process.env.BOT_TOKEN); 
