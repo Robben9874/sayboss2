@@ -13,10 +13,19 @@ client.on('ready', () => {
 
 
 
-client.on('message', message => {
-    if(message.content === '-credit'){
-        message.channel.send('#credit')
-    }
+client.on('message', m => {
+    var prefix = "!!"
+    if (m.content.startsWith(prefix + 'say')) {
+        var args = m.content.split(" ");
+        var str = ``
+        if (!args[1]) {
+            str+=`You Have To Type Something ..`
+        } else {
+            str+=args.join(" ").slice(args[1].length);
+        };
+        m.channel.send(str);
+    };
 });
+
 
 client.login(process.env.BOT_TOKEN); 
