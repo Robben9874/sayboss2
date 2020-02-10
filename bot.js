@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const prefix = ['r']
+const prefix = ['#']
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -14,7 +14,7 @@ client.on('message', message => {
 
 
 if (command == "say" ) {
-let rank = message.guild.member(message.author).roles.find('name', '.');
+let rank = message.guild.member(message.author).roles.find('name', 'Robben');
 if (!rank) return message.reply(' ')
   message.channel.send(args.join("  "))
     message.delete();
