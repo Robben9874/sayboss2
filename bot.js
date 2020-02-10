@@ -14,7 +14,6 @@ client.on('message', message => {
 
 
 if (command == "say" ) {
-let rank = message.guild.member(message.author).roles.find('name', 'Role.Robben');
   if (!rank) return message.reply(' ')
   message.channel.send(args.join("  "))
     message.delete();
